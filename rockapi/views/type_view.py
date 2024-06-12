@@ -52,4 +52,4 @@ class TypeSerializer(serializers.ModelSerializer):
     """JSON serializer for types"""
     class Meta:
         model = Type
-        fields = ('id', 'label', )
+        fields = ('id', 'label',)
