@@ -72,9 +72,10 @@ class RockOwnerSerializer(serializers.ModelSerializer):
 class RockSerializer(serializers.ModelSerializer):
     """JSON serializer"""
 
-    # type = RockTypeSerializer(many=False)
+
     user = RockOwnerSerializer(many=False)
-    type = serializers.ReadOnlyField(source='type.label')
+    # because type has a relationship field (foreign key to rock model), need to specify how to serialize this relationship:
+    type = serializers.ReadOnlyField(source='type.label') #example for a FK field
 
     class Meta:
         model = Rock
